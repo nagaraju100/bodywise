@@ -4,60 +4,104 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BodyWise — Know Your Body, Feed It Right</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <header>
-    <h1>🫀 BodyWise</h1>
-    <p>Click a body part to learn what it does, what to eat, and what happens if you don't.</p>
-    <div class="disclaimer">
-      Educational only — not medical advice. Every fact is sourced (Mayo Clinic, Harvard Health, NIH). Consult a doctor for health concerns.
-    </div>
-  </header>
+  <div class="app">
 
-  <main>
-    <div class="body-diagram-wrap">
-      <svg viewBox="0 0 200 480" xmlns="http://www.w3.org/2000/svg">
-        <!-- Head -->
-        <circle cx="100" cy="40" r="32" fill="#334155" stroke="#475569" stroke-width="1.5"/>
-        <!-- Neck -->
-        <rect x="90" y="68" width="20" height="14" fill="#334155"/>
-        <!-- Torso -->
-        <path d="M60,82 Q100,72 140,82 L150,230 Q100,250 50,230 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
-        <!-- Arms -->
-        <path d="M60,90 L28,220 L42,224 L68,110 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
-        <path d="M140,90 L172,220 L158,224 L132,110 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
-        <!-- Legs -->
-        <path d="M65,228 L55,460 L75,460 L90,232 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
-        <path d="M135,228 L145,460 L125,460 L110,232 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+    <aside class="rail">
+      <div class="brand">
+        <span class="brand-mark">BW</span>
+        <div class="brand-text">
+          <span class="brand-name">BodyWise</span>
+          <span class="brand-tag">know it. feed it. keep it.</span>
+        </div>
+      </div>
 
-        <!-- Organ hotspots -->
-        <!-- Brain (in head) -->
-        <circle class="organ-hotspot" data-organ="brain" cx="100" cy="35" r="16"/>
-        <!-- Lungs -->
-        <ellipse class="organ-hotspot" data-organ="lungs" cx="82" cy="120" rx="15" ry="24"/>
-        <ellipse class="organ-hotspot" data-organ="lungs" cx="118" cy="120" rx="15" ry="24"/>
-        <!-- Heart -->
-        <path class="organ-hotspot" data-organ="heart" d="M100,128 C94,118 78,120 78,134 C78,146 100,160 100,160 C100,160 122,146 122,134 C122,120 106,118 100,128 Z"/>
-        <!-- Liver -->
-        <path class="organ-hotspot" data-organ="liver" d="M85,168 Q110,160 128,172 Q124,188 100,188 Q86,186 85,168 Z"/>
-        <!-- Gut -->
-        <ellipse class="organ-hotspot" data-organ="gut" cx="100" cy="210" rx="28" ry="22"/>
-        <!-- Kidneys -->
-        <ellipse class="organ-hotspot" data-organ="kidneys" cx="72" cy="185" rx="8" ry="13"/>
-        <ellipse class="organ-hotspot" data-organ="kidneys" cx="128" cy="185" rx="8" ry="13"/>
-      </svg>
-      <p class="hint">Tap a highlighted area — brain, lungs, heart, liver, gut, or kidneys.</p>
-    </div>
+      <nav class="organ-list" aria-label="Body parts">
+        <!-- populated by JS -->
+      </nav>
 
-    <div class="card-panel" id="card-panel">
-      <div class="placeholder">Select a body part to see details.</div>
-    </div>
-  </main>
+      <div class="rail-footer">
+        <p>Every fact here is sourced from Mayo Clinic, Harvard Health, NIH, and Cleveland Clinic — not generated.</p>
+        <p class="disclaimer-note">Educational use only. Not medical advice.</p>
+      </div>
+    </aside>
 
-  <footer>
-    BodyWise v1 — 6 body parts. Built for education, not diagnosis.
-  </footer>
+    <main class="stage">
+      <div class="figure-pane">
+        <svg id="body-svg" viewBox="0 0 320 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Human body diagram">
+          <defs>
+            <radialGradient id="figureShade" cx="50%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#EDE6D8"/>
+              <stop offset="100%" stop-color="#DFD5C0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Body silhouette -->
+          <path class="silhouette" d="
+            M160,26
+            C182,26 197,44 197,66
+            C197,80 192,90 184,97
+            C206,104 220,120 224,146
+            L233,224 C235,236 227,244 216,242
+            L206,240 L214,330 C216,352 212,372 200,388
+            L214,430 L226,540 C228,552 220,562 208,562
+            L192,562 C182,562 174,554 172,544
+            L162,440 L158,440 L148,544
+            C146,554 138,562 128,562
+            L112,562 C100,562 92,552 94,540
+            L106,430 L120,388
+            C108,372 104,352 106,330
+            L114,240 L104,242
+            C93,244 85,236 87,224
+            L96,146
+            C100,120 114,104 136,97
+            C128,90 123,80 123,66
+            C123,44 138,26 160,26 Z
+          " fill="url(#figureShade)" stroke="#C9BC9F" stroke-width="1.5"/>
+
+          <!-- Leader lines (drawn first so markers sit above) -->
+          <g class="leaders" stroke="#B9AD90" stroke-width="1" fill="none">
+            <line data-leader="brain" x1="160" y1="52" x2="248" y2="40"/>
+            <line data-leader="lungs" x1="145" y1="150" x2="60" y2="150"/>
+            <line data-leader="heart" x1="168" y1="168" x2="252" y2="182"/>
+            <line data-leader="liver" x1="150" y1="205" x2="60" y2="228"/>
+            <line data-leader="kidneys" x1="178" y1="222" x2="252" y2="270"/>
+            <line data-leader="gut" x1="160" y1="245" x2="60" y2="320"/>
+          </g>
+
+          <!-- Organ markers on the body -->
+          <g class="markers">
+            <circle class="organ-marker" data-organ="brain" cx="160" cy="52" r="7"/>
+            <circle class="organ-marker" data-organ="lungs" cx="145" cy="150" r="7"/>
+            <circle class="organ-marker" data-organ="heart" cx="168" cy="168" r="7"/>
+            <circle class="organ-marker" data-organ="liver" cx="150" cy="205" r="7"/>
+            <circle class="organ-marker" data-organ="kidneys" cx="178" cy="222" r="7"/>
+            <circle class="organ-marker" data-organ="gut" cx="160" cy="245" r="7"/>
+          </g>
+
+          <!-- Label chips at the end of leader lines -->
+          <g class="chips" font-family="'Public Sans', sans-serif" font-size="13" font-weight="600">
+            <g class="chip" data-organ="brain" transform="translate(250,40)"><text>Brain</text></g>
+            <g class="chip" data-organ="lungs" transform="translate(4,150)" text-anchor="start"><text>Lungs</text></g>
+            <g class="chip" data-organ="heart" transform="translate(254,182)"><text>Heart</text></g>
+            <g class="chip" data-organ="liver" transform="translate(4,228)"><text>Liver</text></g>
+            <g class="chip" data-organ="kidneys" transform="translate(254,270)"><text>Kidneys</text></g>
+            <g class="chip" data-organ="gut" transform="translate(4,320)"><text>Gut</text></g>
+          </g>
+        </svg>
+        <p class="figure-hint">Tap a marker or choose from the list</p>
+      </div>
+
+      <section class="detail-pane" id="detail-pane" aria-live="polite">
+        <div class="empty-state">Select a body part to begin.</div>
+      </section>
+    </main>
+  </div>
 
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
