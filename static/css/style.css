@@ -601,6 +601,34 @@ html, body {
 }
 
 @media (max-width: 700px) {
+  .brand { display: none; }
+  .rail {
+    padding: 10px 16px;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  .app.collapsed .rail { display: flex; }
+  .rail-toggle { display: none; }
+  .organ-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    width: 100%;
+  }
+  .organ-item {
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+  .organ-item.active { border-color: var(--accent); }
+  .organ-item .category { font-size: 0.6rem; }
   .stage { grid-template-columns: 1fr; }
   .figure-pane { position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
   .detail-pane { height: auto; padding: 32px 24px; }
