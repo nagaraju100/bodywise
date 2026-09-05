@@ -33,6 +33,12 @@ html, body {
   display: grid;
   grid-template-columns: 300px 1fr;
   min-height: 100vh;
+  transition: grid-template-columns 0.28s ease;
+  position: relative;
+}
+
+.app.collapsed {
+  grid-template-columns: 0px 1fr;
 }
 
 /* ---------- Left rail ---------- */
@@ -44,6 +50,44 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: padding 0.28s ease, opacity 0.2s ease;
+}
+
+.app.collapsed .rail {
+  padding: 28px 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rail-toggle {
+  position: fixed;
+  top: 24px;
+  left: 284px;
+  z-index: 20;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(33,29,22,0.08);
+  transition: left 0.28s ease, transform 0.28s ease, color 0.15s;
+}
+
+.rail-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.app.collapsed .rail-toggle {
+  left: 16px;
+  transform: rotate(180deg);
 }
 
 .brand {
@@ -449,7 +493,10 @@ html, body {
 
 @media (max-width: 980px) {
   .app { grid-template-columns: 1fr; }
+  .app.collapsed { grid-template-columns: 1fr; }
   .rail { border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .app.collapsed .rail { display: none; padding: 0; }
+  .rail-toggle { position: static; margin: 10px 0 0 16px; transform: none !important; }
   .organ-list { flex-direction: row; flex-wrap: wrap; }
   .rail-footer { display: none; }
   .stage { grid-template-columns: 1fr; }

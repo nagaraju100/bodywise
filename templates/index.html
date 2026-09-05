@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <div class="app">
+  <div class="app" id="app">
 
-    <aside class="rail">
+    <aside class="rail" id="rail">
       <div class="brand">
         <span class="brand-mark">BW</span>
         <div class="brand-text">
@@ -30,6 +30,10 @@
         <p class="disclaimer-note">Educational use only. Not medical advice.</p>
       </div>
     </aside>
+
+    <button class="rail-toggle" id="rail-toggle" aria-label="Hide sidebar" title="Hide sidebar">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
 
     <main class="stage">
       <div class="figure-pane">

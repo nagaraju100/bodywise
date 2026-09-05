@@ -139,6 +139,22 @@ async function init() {
 
   // default selection
   select('heart');
+
+  // Sidebar collapse/expand
+  const appEl = document.getElementById('app');
+  const toggleBtn = document.getElementById('rail-toggle');
+  const collapsed = localStorage.getItem('bw-rail-collapsed') === 'true';
+  if (collapsed) {
+    appEl.classList.add('collapsed');
+    toggleBtn.setAttribute('aria-label', 'Show sidebar');
+    toggleBtn.title = 'Show sidebar';
+  }
+  toggleBtn.addEventListener('click', () => {
+    const isCollapsed = appEl.classList.toggle('collapsed');
+    localStorage.setItem('bw-rail-collapsed', isCollapsed);
+    toggleBtn.setAttribute('aria-label', isCollapsed ? 'Show sidebar' : 'Hide sidebar');
+    toggleBtn.title = isCollapsed ? 'Show sidebar' : 'Hide sidebar';
+  });
 }
 
 init();
