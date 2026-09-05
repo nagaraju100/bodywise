@@ -271,6 +271,71 @@ html, body {
 
 .detail section { margin-bottom: 36px; }
 
+/* ---------- Tabs ---------- */
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.tab-btn {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 10px 4px;
+  margin-right: 22px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s;
+}
+
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: transparent;
+  transition: background 0.15s;
+}
+
+.tab-btn:hover {
+  color: var(--ink-soft);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+}
+
+.tab-btn.active::after {
+  background: var(--accent);
+}
+
+.tab-panel {
+  margin-bottom: 36px;
+  min-height: 160px;
+}
+
+.tab-panel.rise {
+  animation: rise 0.25s ease;
+}
+
+.sources-section h2 {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .tab-bar { gap: 0; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .tab-btn { white-space: nowrap; margin-right: 18px; }
+}
+
 .food-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -13,22 +13,58 @@ function renderList(organs, activeId) {
   `).join('');
 }
 
-function renderDetail(organ) {
+const TABS = [
+  { id: 'eat', label: 'Foods that support it' },
+  { id: 'limit', label: 'Foods to limit' },
+  { id: 'neglect', label: "If you don't eat well" },
+  { id: 'tips', label: 'Daily habits' },
+];
+
+function tabPanelHTML(tabId, organ) {
+  if (tabId === 'eat') {
+    const items = organ.best_foods.map(f => `
+      <li><span class="name">${f.food}</span><span class="why">${f.why}</span></li>
+    `).join('');
+    return `<ul class="food-grid eat">${items}</ul>`;
+  }
+  if (tabId === 'limit') {
+    const items = organ.foods_to_limit.map(f => `
+      <li><span class="name">${f.food}</span><span class="why">${f.why}</span></li>
+    `).join('');
+    return `<ul class="food-grid limit">${items}</ul>`;
+  }
+  if (tabId === 'neglect') {
+    return `
+      <div class="effects">
+        <div class="effect-block">
+          <span class="term">Short term</span>
+          <p>${organ.neglect_effects.short_term}</p>
+        </div>
+        <div class="effect-block">
+          <span class="term">Long term</span>
+          <p>${organ.neglect_effects.long_term}</p>
+        </div>
+      </div>
+    `;
+  }
+  if (tabId === 'tips') {
+    const items = organ.daily_tips.map((t, i) => `
+      <li><span class="num">${String(i + 1).padStart(2, '0')}</span><span>${t}</span></li>
+    `).join('');
+    return `<ul class="tips">${items}</ul>`;
+  }
+  return '';
+}
+
+function renderDetail(organ, activeTab) {
   const pane = document.getElementById('detail-pane');
-
-  const eatItems = organ.best_foods.map(f => `
-    <li><span class="name">${f.food}</span><span class="why">${f.why}</span></li>
-  `).join('');
-
-  const limitItems = organ.foods_to_limit.map(f => `
-    <li><span class="name">${f.food}</span><span class="why">${f.why}</span></li>
-  `).join('');
-
-  const tips = organ.daily_tips.map((t, i) => `
-    <li><span class="num">${String(i + 1).padStart(2, '0')}</span><span>${t}</span></li>
-  `).join('');
+  const currentTab = activeTab || 'eat';
 
   const sources = organ.sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('');
+
+  const tabButtons = TABS.map(t => `
+    <button class="tab-btn ${t.id === currentTab ? 'active' : ''}" data-tab="${t.id}">${t.label}</button>
+  `).join('');
 
   pane.innerHTML = `
     <div class="detail">
@@ -36,36 +72,10 @@ function renderDetail(organ) {
       <h1>${organ.name}</h1>
       <p class="lede">${organ.function}</p>
 
-      <section>
-        <h2>Foods that support it</h2>
-        <ul class="food-grid eat">${eatItems}</ul>
-      </section>
+      <div class="tab-bar" role="tablist">${tabButtons}</div>
+      <div class="tab-panel" id="tab-panel">${tabPanelHTML(currentTab, organ)}</div>
 
-      <section>
-        <h2>Foods to limit</h2>
-        <ul class="food-grid limit">${limitItems}</ul>
-      </section>
-
-      <section>
-        <h2>If you don't eat well</h2>
-        <div class="effects">
-          <div class="effect-block">
-            <span class="term">Short term</span>
-            <p>${organ.neglect_effects.short_term}</p>
-          </div>
-          <div class="effect-block">
-            <span class="term">Long term</span>
-            <p>${organ.neglect_effects.long_term}</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Daily habits</h2>
-        <ul class="tips">${tips}</ul>
-      </section>
-
-      <section>
+      <section class="sources-section">
         <h2>Sources</h2>
         <div class="sources">${sources}</div>
       </section>
@@ -75,6 +85,18 @@ function renderDetail(organ) {
       </div>
     </div>
   `;
+
+  pane.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      pane.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById('tab-panel');
+      panel.classList.remove('rise');
+      panel.innerHTML = tabPanelHTML(btn.dataset.tab, organ);
+      void panel.offsetWidth;
+      panel.classList.add('rise');
+    });
+  });
 }
 
 function setActiveVisuals(id) {
@@ -97,7 +119,7 @@ async function init() {
   function select(id) {
     if (!organMap[id]) return;
     setActiveVisuals(id);
-    renderDetail(organMap[id]);
+    renderDetail(organMap[id], 'eat');
     renderList(organs, id);
     attachListListeners();
   }
