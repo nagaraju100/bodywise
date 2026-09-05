@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BodyWise — Know Your Body, Feed It Right</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🫀 BodyWise</h1>
+    <p>Click a body part to learn what it does, what to eat, and what happens if you don't.</p>
+    <div class="disclaimer">
+      Educational only — not medical advice. Every fact is sourced (Mayo Clinic, Harvard Health, NIH). Consult a doctor for health concerns.
+    </div>
+  </header>
+
+  <main>
+    <div class="body-diagram-wrap">
+      <svg viewBox="0 0 200 480" xmlns="http://www.w3.org/2000/svg">
+        <!-- Head -->
+        <circle cx="100" cy="40" r="32" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <!-- Neck -->
+        <rect x="90" y="68" width="20" height="14" fill="#334155"/>
+        <!-- Torso -->
+        <path d="M60,82 Q100,72 140,82 L150,230 Q100,250 50,230 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <!-- Arms -->
+        <path d="M60,90 L28,220 L42,224 L68,110 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <path d="M140,90 L172,220 L158,224 L132,110 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <!-- Legs -->
+        <path d="M65,228 L55,460 L75,460 L90,232 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <path d="M135,228 L145,460 L125,460 L110,232 Z" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+
+        <!-- Organ hotspots -->
+        <!-- Brain (in head) -->
+        <circle class="organ-hotspot" data-organ="brain" cx="100" cy="35" r="16"/>
+        <!-- Lungs -->
+        <ellipse class="organ-hotspot" data-organ="lungs" cx="82" cy="120" rx="15" ry="24"/>
+        <ellipse class="organ-hotspot" data-organ="lungs" cx="118" cy="120" rx="15" ry="24"/>
+        <!-- Heart -->
+        <path class="organ-hotspot" data-organ="heart" d="M100,128 C94,118 78,120 78,134 C78,146 100,160 100,160 C100,160 122,146 122,134 C122,120 106,118 100,128 Z"/>
+        <!-- Liver -->
+        <path class="organ-hotspot" data-organ="liver" d="M85,168 Q110,160 128,172 Q124,188 100,188 Q86,186 85,168 Z"/>
+        <!-- Gut -->
+        <ellipse class="organ-hotspot" data-organ="gut" cx="100" cy="210" rx="28" ry="22"/>
+        <!-- Kidneys -->
+        <ellipse class="organ-hotspot" data-organ="kidneys" cx="72" cy="185" rx="8" ry="13"/>
+        <ellipse class="organ-hotspot" data-organ="kidneys" cx="128" cy="185" rx="8" ry="13"/>
+      </svg>
+      <p class="hint">Tap a highlighted area — brain, lungs, heart, liver, gut, or kidneys.</p>
+    </div>
+
+    <div class="card-panel" id="card-panel">
+      <div class="placeholder">Select a body part to see details.</div>
+    </div>
+  </main>
+
+  <footer>
+    BodyWise v1 — 6 body parts. Built for education, not diagnosis.
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

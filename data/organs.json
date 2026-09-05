@@ -1,0 +1,193 @@
+[
+  {
+    "id": "heart",
+    "name": "Heart",
+    "category": "Vital Organ",
+    "function": "Your heart is a muscular pump that pushes oxygen-rich blood through your entire body, about 100,000 times a day. It delivers oxygen and nutrients to every cell and carries away waste, keeping every other organ alive.",
+    "best_foods": [
+      {"food": "Fatty fish (salmon, mackerel, sardines)", "why": "Omega-3 fats lower triglycerides and reduce irregular heart rhythms."},
+      {"food": "Leafy greens & vegetables", "why": "Antioxidants help protect artery walls from damage."},
+      {"food": "Whole grains (oats, quinoa, barley)", "why": "Fiber lowers LDL ('bad') cholesterol."},
+      {"food": "Nuts (walnuts, almonds)", "why": "Healthy unsaturated fats support healthy cholesterol levels."},
+      {"food": "Berries", "why": "Flavonoids reduce inflammation linked to artery damage."},
+      {"food": "Olive oil", "why": "Monounsaturated fat central to the heart-protective Mediterranean diet."},
+      {"food": "Legumes (beans, lentils)", "why": "High fiber, low saturated fat protein source."}
+    ],
+    "foods_to_limit": [
+      {"food": "Fried & processed foods", "why": "High trans/saturated fat raises LDL cholesterol."},
+      {"food": "Excess salt", "why": "Raises blood pressure, forcing the heart to work harder."},
+      {"food": "Sugary drinks", "why": "Linked to obesity and higher heart disease risk."},
+      {"food": "Processed/fatty meats", "why": "High saturated fat and sodium content."}
+    ],
+    "neglect_effects": {
+      "short_term": "High blood pressure, elevated cholesterol, fatigue, shortness of breath on exertion.",
+      "long_term": "Atherosclerosis (artery narrowing), heart attack, stroke, heart failure."
+    },
+    "daily_tips": [
+      "Fill half your plate with vegetables and fruit at meals.",
+      "Swap fried food for grilled/baked at least a few times a week.",
+      "Aim for two servings of fish per week instead of red/processed meat."
+    ],
+    "sources": [
+      {"label": "Mayo Clinic — Heart-healthy diet", "url": "https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-healthy-diet/art-20047702"},
+      {"label": "Harvard Health — Heart-healthy foods", "url": "https://www.health.harvard.edu/heart-health/heart-healthy-foods-what-to-eat-and-what-to-avoid"}
+    ]
+  },
+  {
+    "id": "liver",
+    "name": "Liver",
+    "category": "Vital Organ",
+    "function": "Your liver filters toxins out of your blood, processes nutrients from food, produces bile to digest fat, and stores energy. It's your body's main detox and metabolic control center.",
+    "best_foods": [
+      {"food": "Non-starchy vegetables (broccoli, spinach, carrots)", "why": "Provide antioxidants and fiber that reduce liver fat buildup."},
+      {"food": "Fatty fish (salmon, sardines)", "why": "Omega-3s reduce liver inflammation and fat accumulation."},
+      {"food": "Legumes (beans, lentils, peas)", "why": "Lean protein without the saturated fat load of red meat."},
+      {"food": "Nuts (walnuts, almonds)", "why": "Healthy fats linked to lower risk of fatty liver disease."},
+      {"food": "Whole grains", "why": "Support stable blood sugar, reducing strain on liver metabolism."},
+      {"food": "Coffee (in moderation)", "why": "Associated with lower risk of liver scarring in multiple studies."}
+    ],
+    "foods_to_limit": [
+      {"food": "Added sugar & fructose (soda, sweets)", "why": "Major driver of fatty liver disease."},
+      {"food": "Alcohol", "why": "Direct toxin to liver cells; leading cause of cirrhosis."},
+      {"food": "Fried & fatty foods", "why": "Promote fat accumulation in liver tissue."},
+      {"food": "Excess salt", "why": "Worsens fluid retention in liver disease."}
+    ],
+    "neglect_effects": {
+      "short_term": "Fatigue, mild abdominal discomfort, fat buildup detectable on scans (fatty liver).",
+      "long_term": "Non-alcoholic fatty liver disease (NAFLD), inflammation (hepatitis), scarring (cirrhosis), liver failure."
+    },
+    "daily_tips": [
+      "Cut back on sugary drinks and desserts — the single biggest lever for liver fat.",
+      "Limit or avoid alcohol.",
+      "Choose lean proteins (fish, poultry, legumes) over fatty/processed meats."
+    ],
+    "sources": [
+      {"label": "Mayo Clinic — Fatty liver disease diet", "url": "https://www.mayoclinic.org/diseases-conditions/fatty-liver-disease-masld/in-depth/fatty-liver-disease-masld-diet/art-20588469"},
+      {"label": "PMC — Food & Nutrition in Liver Damage", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8073814/"}
+    ]
+  },
+  {
+    "id": "brain",
+    "name": "Brain",
+    "category": "Nervous System",
+    "function": "Your brain controls thought, memory, emotion, movement, and every automatic process (breathing, heartbeat). It runs on a constant supply of glucose and oxygen and is highly sensitive to what you eat.",
+    "best_foods": [
+      {"food": "Leafy greens (spinach, kale)", "why": "Vitamin K, folate, and lutein are linked to slower cognitive decline."},
+      {"food": "Fatty fish", "why": "Omega-3s lower levels of a protein linked to Alzheimer's disease."},
+      {"food": "Berries", "why": "Flavonoids shown to delay memory decline by up to 2.5 years in studies."},
+      {"food": "Walnuts", "why": "Reduce inflammation and oxidative stress that harm brain cells over time."},
+      {"food": "Whole grains", "why": "Steady glucose release keeps the brain fueled without sugar spikes."}
+    ],
+    "foods_to_limit": [
+      {"food": "Red meat, butter, cream (saturated fat)", "why": "Raise LDL cholesterol, restricting blood flow to the brain."},
+      {"food": "Refined sugar & white bread", "why": "Sugar spikes and crashes impair focus and are linked to inflammation."},
+      {"food": "Fried food", "why": "Associated with faster cognitive decline in long-term studies."}
+    ],
+    "neglect_effects": {
+      "short_term": "Poor concentration, brain fog, mood swings, low energy.",
+      "long_term": "Accelerated cognitive decline, higher risk of dementia and Alzheimer's disease."
+    },
+    "daily_tips": [
+      "Eat fish at least twice a week (choose low-mercury: salmon, cod, tuna).",
+      "Add a handful of berries or walnuts to breakfast.",
+      "Follow a Mediterranean or MIND-style eating pattern most days."
+    ],
+    "sources": [
+      {"label": "Harvard Health — Foods linked to better brainpower", "url": "https://www.health.harvard.edu/healthbeat/foods-linked-to-better-brainpower"},
+      {"label": "Cleveland Clinic — Best Brain Foods", "url": "https://health.clevelandclinic.org/brain-foods"}
+    ]
+  },
+  {
+    "id": "kidneys",
+    "name": "Kidneys",
+    "category": "Vital Organ",
+    "function": "Your two kidneys filter waste and excess fluid out of your blood, balance electrolytes (sodium, potassium), and help control blood pressure. They produce urine to remove what your body doesn't need.",
+    "best_foods": [
+      {"food": "Non-starchy vegetables (cauliflower, cabbage, asparagus)", "why": "Low in potassium/phosphorus, easy on kidney filtering load."},
+      {"food": "Berries and apples", "why": "Antioxidants with naturally low potassium content."},
+      {"food": "Fish and skinless poultry", "why": "Lean protein reduces the workload compared to processed/red meats."},
+      {"food": "Olive oil", "why": "Healthy fat that reduces inflammation without added sodium."},
+      {"food": "Garlic and herbs", "why": "Flavor food without relying on salt."}
+    ],
+    "foods_to_limit": [
+      {"food": "Excess sodium (processed food, soda, deli meats)", "why": "Raises blood pressure and fluid retention, stressing the kidneys."},
+      {"food": "Excess protein (especially red/processed meat)", "why": "Creates more nitrogen waste for kidneys to filter."},
+      {"food": "Sugary drinks", "why": "Linked to higher risk of kidney disease over time."}
+    ],
+    "neglect_effects": {
+      "short_term": "Fluid retention, high blood pressure, fatigue.",
+      "long_term": "Chronic kidney disease (CKD), kidney stones, eventual kidney failure requiring dialysis."
+    },
+    "daily_tips": [
+      "Keep sodium under 2,300mg/day — check labels on packaged food.",
+      "Stay well hydrated with water instead of soda.",
+      "Don't over-rely on high-protein diets without medical guidance."
+    ],
+    "sources": [
+      {"label": "NIDDK (NIH) — Preventing Chronic Kidney Disease", "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/prevention"},
+      {"label": "National Kidney Foundation — Foods to Avoid", "url": "https://www.kidney.org/kidney-topics/keep-your-kidneys-healthy-5-foods-to-avoid"}
+    ]
+  },
+  {
+    "id": "gut",
+    "name": "Gut / Digestive System",
+    "category": "Digestive System",
+    "function": "Your gut breaks down food, absorbs nutrients, houses trillions of bacteria (the microbiome) that aid digestion and immunity, and even produces mood-related chemicals like serotonin.",
+    "best_foods": [
+      {"food": "High-fiber foods (lentils, whole grains, vegetables)", "why": "Feed beneficial gut bacteria and keep digestion regular."},
+      {"food": "Fermented foods (yogurt, kefir, kimchi, sauerkraut)", "why": "Introduce live probiotics that boost microbiome diversity."},
+      {"food": "Prebiotic foods (garlic, onions, bananas)", "why": "Feed the good bacteria already living in your gut."},
+      {"food": "Colorful fruits & vegetables", "why": "Variety of plant compounds supports a diverse, resilient microbiome."}
+    ],
+    "foods_to_limit": [
+      {"food": "Highly processed 'Western diet' foods", "why": "Reduce microbiome diversity and promote inflammation."},
+      {"food": "Excess sugar", "why": "Feeds harmful bacteria and yeast, disrupting gut balance."},
+      {"food": "Artificial sweeteners (heavy use)", "why": "Some studies link them to altered gut bacteria balance."}
+    ],
+    "neglect_effects": {
+      "short_term": "Bloating, irregular digestion, low energy, mood dips.",
+      "long_term": "Leaky gut, chronic inflammation, weakened immunity, higher risk of inflammatory bowel conditions."
+    },
+    "daily_tips": [
+      "Add one fermented food (yogurt, kefir) to your daily diet.",
+      "Aim for 25-30g of fiber a day from varied plant foods.",
+      "Limit ultra-processed snacks in favor of whole foods."
+    ],
+    "sources": [
+      {"label": "Harvard Health — Feed your gut", "url": "https://www.health.harvard.edu/digestive-health/how-to-feed-your-gut"},
+      {"label": "PMC — Food, Nutrition and the Gut Microbiome", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9455721/"}
+    ]
+  },
+  {
+    "id": "lungs",
+    "name": "Lungs",
+    "category": "Vital Organ",
+    "function": "Your lungs bring oxygen into your blood and remove carbon dioxide with every breath — about 20,000 times a day. Healthy lungs mean better oxygen delivery to every cell in your body.",
+    "best_foods": [
+      {"food": "High-fiber foods (lentils, chickpeas, black beans)", "why": "Linked to measurably better lung function in research."},
+      {"food": "Berries", "why": "Associated with slower age-related decline in lung function."},
+      {"food": "Leafy greens", "why": "Linked to lower lung cancer risk in population studies."},
+      {"food": "Tomatoes", "why": "Rich in lycopene, linked to reduced airway inflammation."},
+      {"food": "Whole grains", "why": "Fiber and vitamin E support antioxidant defenses in lung tissue."},
+      {"food": "Apples", "why": "Regular intake linked to slower lung decline, especially in ex-smokers."}
+    ],
+    "foods_to_limit": [
+      {"food": "Processed/fried foods", "why": "Linked to airway inflammation."},
+      {"food": "Excess salt", "why": "Can worsen fluid retention affecting breathing in lung conditions."},
+      {"food": "Low-fiber, low-nutrient diets", "why": "Correlated with poorer lung function over time."}
+    ],
+    "neglect_effects": {
+      "short_term": "Reduced stamina, more frequent shortness of breath.",
+      "long_term": "Faster decline in lung function, higher risk of COPD and respiratory infections (compounded heavily by smoking)."
+    },
+    "daily_tips": [
+      "Add a serving of high-fiber legumes to a meal each day.",
+      "Eat 2+ servings of fruit like apples or berries weekly.",
+      "Avoid smoking/secondhand smoke — the single biggest lung-health factor, diet included."
+    ],
+    "sources": [
+      {"label": "Healthline — 20 Best Foods for Lung Health", "url": "https://www.healthline.com/nutrition/lung-cleansing-foods"},
+      {"label": "PMC — Healthy Diets and Lung Health", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5018896/"}
+    ]
+  }
+]
