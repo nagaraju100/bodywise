@@ -129,7 +129,6 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  flex: 1;
 }
 
 .organ-item {
@@ -171,12 +170,34 @@ html, body {
   color: rgba(255,255,255,0.75);
 }
 
+.rail-tip {
+  margin-top: 8px;
+  padding: 14px 16px;
+  background: var(--paper);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.rail-tip strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
 .rail-footer {
   border-top: 1px solid var(--border);
   padding-top: 16px;
+  margin-top: auto;
   font-size: 0.76rem;
   color: var(--muted);
   line-height: 1.5;
+  white-space: normal;
 }
 
 .rail-footer p { margin: 0 0 6px; }
@@ -201,6 +222,7 @@ html, body {
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid var(--border);
+  background: radial-gradient(ellipse at 50% 35%, rgba(199,154,62,0.06), transparent 65%);
 }
 
 #body-svg {
@@ -311,7 +333,7 @@ html, body {
   align-items: center;
   margin-top: 20px;
   padding: 16px;
-  background: var(--paper-raised);
+  background: linear-gradient(180deg, #F1EADA, #EAE1CB);
   border: 1px solid var(--border);
   border-radius: 14px;
   width: 100%;
@@ -326,6 +348,10 @@ html, body {
   max-width: 100%;
   max-height: 200px;
   object-fit: contain;
+}
+
+.organ-figure-pinned img[src*="heart"] {
+  filter: sepia(0.7) saturate(3) hue-rotate(-40deg) brightness(0.92) contrast(1.05);
 }
 
 .organ-figure-pinned-caption {
@@ -520,18 +546,26 @@ html, body {
 .sources {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .sources a {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--ink-soft);
   text-decoration: none;
-  border-bottom: 1px solid var(--muted);
-  padding-bottom: 1px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 
-.sources a:hover { color: var(--accent); border-color: var(--accent); }
+.sources a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
 
 .detail-disclaimer {
   margin-top: 40px;
@@ -541,14 +575,32 @@ html, body {
   color: var(--muted);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1180px) {
+  .stage { grid-template-columns: 280px 1fr; }
+  #body-svg { max-width: 230px; }
+  .detail-pane { padding: 48px 36px; }
+}
+
+@media (max-width: 1024px) {
   .app { grid-template-columns: 1fr; }
   .app.collapsed { grid-template-columns: 1fr; }
-  .rail { border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .rail {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
   .app.collapsed .rail { display: none; padding: 0; }
-  .rail-toggle { position: static; margin: 10px 0 0 16px; transform: none !important; }
+  .rail-toggle { position: static; margin: 10px 0 0 20px; transform: none !important; }
   .organ-list { flex-direction: row; flex-wrap: wrap; }
-  .rail-footer { display: none; }
+  .rail-tip, .rail-footer { display: none; }
+  .stage { grid-template-columns: 260px 1fr; }
+  .figure-pane { height: calc(100vh - 78px); }
+}
+
+@media (max-width: 700px) {
   .stage { grid-template-columns: 1fr; }
   .figure-pane { position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
   .detail-pane { height: auto; padding: 32px 24px; }
