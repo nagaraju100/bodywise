@@ -199,6 +199,7 @@ html, body {
   position: sticky;
   top: 0;
   height: 100vh;
+  overflow-y: auto;
   border-right: 1px solid var(--border);
 }
 
@@ -304,109 +305,45 @@ html, body {
   line-height: 1.05;
 }
 
-.view-image-btn {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border: none;
-  border-radius: 20px;
-  padding: 7px 16px;
-  cursor: pointer;
-  transition: background 0.15s;
-  margin-bottom: 18px;
-  white-space: nowrap;
-}
-
-.view-image-btn:hover {
-  background: #d3e4dc;
-}
-
-/* ---------- Image modal ---------- */
-
-.image-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(33, 29, 22, 0);
-  pointer-events: none;
-  transition: background 0.25s ease;
-}
-
-.image-modal.open {
-  background: rgba(33, 29, 22, 0.55);
-  pointer-events: auto;
-}
-
-.image-modal-card {
-  background: var(--paper-raised);
-  border-radius: 16px;
-  padding: 32px;
-  max-width: min(480px, 88vw);
-  max-height: 86vh;
-  display: flex;
+.organ-figure-pinned {
+  display: none;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  box-shadow: 0 20px 60px rgba(33,29,22,0.25);
-  transform: scale(0.96) translateY(8px);
-  opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  position: relative;
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--paper-raised);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 280px;
 }
 
-.image-modal.open .image-modal-card {
-  transform: scale(1) translateY(0);
-  opacity: 1;
+.organ-figure-pinned.visible {
+  display: flex;
 }
 
-.image-modal-card img {
+.organ-figure-pinned img {
   max-width: 100%;
-  max-height: 55vh;
+  max-height: 200px;
   object-fit: contain;
 }
 
-.image-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: var(--paper);
-  color: var(--ink-soft);
-  font-size: 1.2rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-modal-close:hover {
-  color: var(--warn);
-}
-
-.image-modal-caption {
+.organ-figure-pinned-caption {
+  margin-top: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
-.image-modal-name {
+.organ-figure-pinned-caption .name {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-.image-modal-credit {
-  font-size: 0.72rem;
+.organ-figure-pinned-caption .credit {
+  font-size: 0.68rem;
   color: var(--muted);
 }
 

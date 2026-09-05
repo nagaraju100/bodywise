@@ -69,10 +69,8 @@ function renderDetail(organ, activeTab) {
   pane.innerHTML = `
     <div class="detail">
       <span class="eyebrow">${organ.category}</span>
-      <div class="title-row">
-        <h1>${organ.name}</h1>
-        ${organ.image ? `<button class="view-image-btn" id="view-image-btn">View illustration</button>` : ''}
-      </div>
+      <h1>${organ.name}</h1>
+
       <p class="lede">${organ.function}</p>
 
       <div class="tab-bar" role="tablist">${tabButtons}</div>
@@ -100,41 +98,24 @@ function renderDetail(organ, activeTab) {
       panel.classList.add('rise');
     });
   });
-
-  const viewImageBtn = document.getElementById('view-image-btn');
-  if (viewImageBtn) {
-    viewImageBtn.addEventListener('click', () => openImageModal(organ));
-  }
 }
 
-function openImageModal(organ) {
-  if (!organ.image) return;
-  let modal = document.getElementById('image-modal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'image-modal';
-    modal.className = 'image-modal';
-    document.body.appendChild(modal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('image-modal-close')) {
-        modal.classList.remove('open');
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') modal.classList.remove('open');
-    });
+function renderPinnedFigure(organ) {
+  const holder = document.getElementById('organ-figure-pinned');
+  if (!holder) return;
+  if (!organ.image) {
+    holder.innerHTML = '';
+    holder.classList.remove('visible');
+    return;
   }
-  modal.innerHTML = `
-    <div class="image-modal-card">
-      <button class="image-modal-close" aria-label="Close">×</button>
-      <img src="${organ.image}" alt="${organ.name} illustration">
-      <div class="image-modal-caption">
-        <span class="image-modal-name">${organ.name}</span>
-        <span class="image-modal-credit">${organ.image_credit || ''}</span>
-      </div>
+  holder.innerHTML = `
+    <img src="${organ.image}" alt="${organ.name} illustration">
+    <div class="organ-figure-pinned-caption">
+      <span class="name">${organ.name}</span>
+      <span class="credit">${organ.image_credit || ''}</span>
     </div>
   `;
-  requestAnimationFrame(() => modal.classList.add('open'));
+  holder.classList.add('visible');
 }
 
 function setActiveVisuals(id) {
@@ -154,18 +135,18 @@ async function init() {
   const organMap = {};
   organs.forEach(o => organMap[o.id] = o);
 
-  function select(id, opts = {}) {
+  function select(id) {
     if (!organMap[id]) return;
     setActiveVisuals(id);
     renderDetail(organMap[id], 'eat');
+    renderPinnedFigure(organMap[id]);
     renderList(organs, id);
     attachListListeners();
-    if (opts.showImage) openImageModal(organMap[id]);
   }
 
   function attachListListeners() {
     document.querySelectorAll('.organ-item').forEach(item => {
-      item.addEventListener('click', () => select(item.dataset.organ, { showImage: true }));
+      item.addEventListener('click', () => select(item.dataset.organ));
     });
   }
 
@@ -173,10 +154,10 @@ async function init() {
   attachListListeners();
 
   document.querySelectorAll('.organ-marker, .chip').forEach(el => {
-    el.addEventListener('click', () => select(el.dataset.organ, { showImage: true }));
+    el.addEventListener('click', () => select(el.dataset.organ));
   });
 
-  // default selection (no popup on initial load)
+  // default selection
   select('heart');
 
   // Sidebar collapse/expand
