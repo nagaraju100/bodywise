@@ -3,6 +3,8 @@
     "id": "heart",
     "name": "Heart",
     "category": "Vital Organ",
+    "image": "/static/img/heart.png",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your heart is a muscular pump that pushes oxygen-rich blood through your entire body, about 100,000 times a day. It delivers oxygen and nutrients to every cell and carries away waste, keeping every other organ alive.",
     "best_foods": [
       {"food": "Fatty fish (salmon, mackerel, sardines)", "why": "Omega-3 fats lower triglycerides and reduce irregular heart rhythms."},
@@ -37,6 +39,8 @@
     "id": "liver",
     "name": "Liver",
     "category": "Vital Organ",
+    "image": "/static/img/liver.svg",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your liver filters toxins out of your blood, processes nutrients from food, produces bile to digest fat, and stores energy. It's your body's main detox and metabolic control center.",
     "best_foods": [
       {"food": "Non-starchy vegetables (broccoli, spinach, carrots)", "why": "Provide antioxidants and fiber that reduce liver fat buildup."},
@@ -70,6 +74,8 @@
     "id": "brain",
     "name": "Brain",
     "category": "Nervous System",
+    "image": "/static/img/brain.svg",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your brain controls thought, memory, emotion, movement, and every automatic process (breathing, heartbeat). It runs on a constant supply of glucose and oxygen and is highly sensitive to what you eat.",
     "best_foods": [
       {"food": "Leafy greens (spinach, kale)", "why": "Vitamin K, folate, and lutein are linked to slower cognitive decline."},
@@ -101,6 +107,8 @@
     "id": "kidneys",
     "name": "Kidneys",
     "category": "Vital Organ",
+    "image": "/static/img/kidneys.png",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your two kidneys filter waste and excess fluid out of your blood, balance electrolytes (sodium, potassium), and help control blood pressure. They produce urine to remove what your body doesn't need.",
     "best_foods": [
       {"food": "Non-starchy vegetables (cauliflower, cabbage, asparagus)", "why": "Low in potassium/phosphorus, easy on kidney filtering load."},
@@ -132,6 +140,8 @@
     "id": "gut",
     "name": "Gut / Digestive System",
     "category": "Digestive System",
+    "image": "/static/img/gut.svg",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your gut breaks down food, absorbs nutrients, houses trillions of bacteria (the microbiome) that aid digestion and immunity, and even produces mood-related chemicals like serotonin.",
     "best_foods": [
       {"food": "High-fiber foods (lentils, whole grains, vegetables)", "why": "Feed beneficial gut bacteria and keep digestion regular."},
@@ -162,6 +172,8 @@
     "id": "lungs",
     "name": "Lungs",
     "category": "Vital Organ",
+    "image": "/static/img/lungs.png",
+    "image_credit": "Ryan Kissinger, courtesy of NIAID / NIH BioArt — Public Domain",
     "function": "Your lungs bring oxygen into your blood and remove carbon dioxide with every breath — about 20,000 times a day. Healthy lungs mean better oxygen delivery to every cell in your body.",
     "best_foods": [
       {"food": "High-fiber foods (lentils, chickpeas, black beans)", "why": "Linked to measurably better lung function in research."},
